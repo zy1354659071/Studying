@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!-- spring的入口文件，作用引入其他的配置文件 -->
+    <import resource="classpath:context/spring-config-profiles.xml" />
+
+    <!-- 自动扫描配置Contoller层  -->
+    <context:component-scan base-package="com.zhuyi.studying.**" />
+
+    <!-- aop动态代理配置 -->
+    <aop:aspectj-autoproxy proxy-target-class="true" />
+
+
+    <!-- springmvc配置  -->
+    <import resource="classpath:context/spring-config-mvc.xml" />
+    <!-- spring 数据库连接配置  -->
+    <import resource="classpath:context/spring-config-datasource.xml" />
+    <!-- spring Redis 配置  -->
+    <import resource="classpath:context/spring-config-redis.xml" />
+    <!-- spring 定时器配置 -->
+    <import resource="classpath:context/spring-config-quartz.xml" />
+
+</beans>

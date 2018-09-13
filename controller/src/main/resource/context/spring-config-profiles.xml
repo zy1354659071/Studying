@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/util/spring-context.xsd">
+
+    <!-- 测试环境中的配置 -->
+    <beans profile="dev">
+        <context:property-placeholder location="classpath*:property/dev/*.properties" />
+    </beans>
+
+    <!-- 预发环境中的配置  -->
+    <beans profile="yfb">
+        <context:property-placeholder location="classpath*:property/yfb/*.properties" />
+    </beans>
+
+    <!--  线上环境的配置  -->
+    <beans profile="product">
+        <context:property-placeholder location="classpath*:property/product/*.properties" />
+    </beans>
+
+</beans>
